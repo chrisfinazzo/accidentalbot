@@ -7,6 +7,7 @@ Showbot.Bot = (function ($) {
 	// Templates
 	var titleRowTemplate = null;
     var linkRowTemplate = null;
+      var chapterRowTemplate = null;
 	var connectingTemplate = null;
 
 	// State
@@ -16,6 +17,7 @@ Showbot.Bot = (function ($) {
 		$(function () {
             titleRowTemplate = titleRowTemplate || Handlebars.compile($("#titleRow").html());
             linkRowTemplate = linkRowTemplate || Handlebars.compile($('#linkRow').html());
+            chapterRowTemplate = chapterRowTemplate || Handlebars.compile($('#chapterRow').html());
 			connectingTemplate = connectingTemplate || Handlebars.compile($('#connectingMessage').html());
 
 			Handlebars.registerHelper('timeAgo', function (date) {

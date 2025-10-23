@@ -16,6 +16,7 @@ var TITLE_LIMIT = 75;
 var titles = [];
 var connections = [];
 var links = [];
+var chapters = [];
 
 function sendToAll(packet) {
     connections.forEach(function (connection) {
@@ -114,13 +115,36 @@ function handleNewLink(from, message) {
     }
 }
 
+function handleNewChapter(from, message) {
+    if (message.startsWith('!chapter')) {
+        message = message.substring(9);
+    } else if (message.startsWith('!c')) {
+        message = message.substring(3);
+    }
+
+    if (message.startsWith('http')) {
+        var chapter = {
+            id: chapters.length,
+            author: from,
+            chapter: message,
+            time: new Date()
+        };
+        chapters.push(chapter);
+
+        sendToAll({operation: 'NEWCHAPTER', chapter: chapter});
+    } else {
+        client.say(from, "That doesn't look like a chapter to me.");
+    }
+}
+
 function handleHelp(from) {
     client.say(from, 'Options:');
     client.say(from, '!s {title} - suggest a title (in ' + channel + ' only).');
     client.say(from, '!votes - get the three most highly voted titles.');
     client.say(from, '!link {URL} - suggest a link.');
+    client.say(from, '!chapter {chapter} - suggest a link.');
     client.say(from, '!help - see this message.');
-    client.say(from, 'To see titles/links, go to: ' + webAddress);
+    client.say(from, 'To see titles/links/chapters, go to: ' + webAddress);
 }
 
 var options = {

@@ -23,6 +23,12 @@
                 <td>{{author}}</td>
                 <td class="time" data-time="{{{time}}}">{{timeAgo time}}</td>
         </script>
+        <script id="chapterRow" type="text/x-handlebars-template">
+            <tr data-id="{{id}}">
+                <td><a href="{{{chapter}}}" onclick="return Showbot.Bot.chapterHandler(this);">Chapter</a></td>
+                <td>{{author}}</td>
+                <td class="time" data-time="{{{time}}}">{{timeAgo time}}</td>
+        </script>
 
         <script id="connectingMessage" type="text/x-handlebars-template">
             Connecting...
@@ -50,6 +56,19 @@
             <thead>
                 <tr>
                     <th>Link</th>
+                    <th>Author</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h2>Chapters</h2>
+        <table class="chapters table">
+            <thead>
+                <tr>
+                    <th>Chapter</th>
                     <th>Author</th>
                     <th>Time</th>
                 </tr>
