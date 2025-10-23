@@ -142,7 +142,7 @@ function handleHelp(from) {
     client.say(from, '!s {title} - suggest a title (in ' + channel + ' only).');
     client.say(from, '!votes - get the three most highly voted titles.');
     client.say(from, '!link {URL} - suggest a link.');
-    client.say(from, '!chapter {chapter} - suggest a link.');
+    client.say(from, '!chapter {chapter} - suggest a chapter title.');
     client.say(from, '!help - see this message.');
     client.say(from, 'To see titles/links/chapters, go to: ' + webAddress);
 }
