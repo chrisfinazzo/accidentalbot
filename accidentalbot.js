@@ -6,7 +6,7 @@ var webSocket = require('ws');
 
 var channel = process.env.CHANNEL;
 if (typeof channel === 'undefined') {
-    console.log('ERROR: Must speficy environment variable "CHANNEL"!');
+    console.log('ERROR: Must specify environment variable "CHANNEL"!');
     process.exit();    
 }
 
